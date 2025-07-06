@@ -16,26 +16,33 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
         {/* Pitch Black Background */}
         <div className="absolute inset-0 bg-black"></div>
 
-        {/* Aurora Container - Upper section only */}
-        <div className="absolute top-0 left-0 right-0 h-[70vh]">
-          {/* Strong Aurora with better visibility */}
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px]">
-            {/* Enhanced Aurora Layer */}
-            <div className="absolute inset-0 opacity-60">
-              <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl aurora-float"></div>
-              <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-1"></div>
-              <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-emerald-400 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-2"></div>
+        {/* Aurora Container - Perfectly centered */}
+        <div className="absolute top-0 left-0 right-0 h-[70vh] flex items-center justify-center">
+          {/* Centered Aurora with vibrant colors */}
+          <div className="relative w-[500px] h-[300px]">
+            {/* Primary Aurora Layer - Bright vibrant colors */}
+            <div className="absolute inset-0 opacity-70">
+              <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl aurora-float"></div>
+              <div className="absolute top-1/3 right-1/4 w-36 h-36 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-1"></div>
+              <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-emerald-500 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-2"></div>
             </div>
 
-            {/* Second Aurora Layer */}
-            <div className="absolute inset-0 opacity-40">
-              <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-pink-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-3 transform -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-cyan-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-4"></div>
-              <div className="absolute top-1/6 right-1/2 w-24 h-24 bg-violet-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-5"></div>
+            {/* Secondary Aurora Layer - Rich bright colors */}
+            <div className="absolute inset-0 opacity-50">
+              <div className="absolute top-1/2 left-1/2 w-28 h-28 bg-fuchsia-500 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-3 transform -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-cyan-500 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-4"></div>
+              <div className="absolute top-1/6 right-1/2 w-20 h-20 bg-violet-600 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-5"></div>
+            </div>
+
+            {/* Accent Aurora Layer - Deep vibrant colors */}
+            <div className="absolute inset-0 opacity-35">
+              <div className="absolute top-3/4 left-1/6 w-16 h-16 bg-rose-500 rounded-full mix-blend-screen filter blur-xl aurora-float"></div>
+              <div className="absolute bottom-1/6 right-1/6 w-18 h-18 bg-indigo-500 rounded-full mix-blend-screen filter blur-xl aurora-float-delay-2"></div>
+              <div className="absolute top-1/8 left-3/4 w-14 h-14 bg-orange-500 rounded-full mix-blend-screen filter blur-xl aurora-float-delay-4"></div>
             </div>
 
             {/* Enhanced Moving Aurora Elements */}
-            <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0 opacity-25">
               <div className="aurora-1"></div>
               <div className="aurora-2"></div>
               <div className="aurora-3"></div>
@@ -96,10 +103,10 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
           height: 150%;
           background: linear-gradient(
             45deg,
-            transparent,
-            rgba(139, 92, 246, 0.25),
-            rgba(236, 72, 153, 0.2),
-            transparent
+            rgba(0, 0, 0, 0),
+            rgba(147, 51, 234, 0.3),
+            rgba(219, 39, 119, 0.25),
+            rgba(0, 0, 0, 0)
           );
           animation: aurora-rotate 20s linear infinite;
         }
@@ -112,10 +119,10 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
           height: 150%;
           background: linear-gradient(
             -45deg,
-            transparent,
-            rgba(59, 130, 246, 0.2),
-            rgba(16, 185, 129, 0.15),
-            transparent
+            rgba(0, 0, 0, 0),
+            rgba(37, 99, 235, 0.25),
+            rgba(6, 182, 212, 0.2),
+            rgba(0, 0, 0, 0)
           );
           animation: aurora-rotate 25s linear infinite reverse;
         }
@@ -128,10 +135,10 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
           height: 150%;
           background: linear-gradient(
             90deg,
-            transparent,
-            rgba(16, 185, 129, 0.2),
-            rgba(245, 158, 11, 0.15),
-            transparent
+            rgba(0, 0, 0, 0),
+            rgba(5, 150, 105, 0.25),
+            rgba(217, 119, 6, 0.2),
+            rgba(0, 0, 0, 0)
           );
           animation: aurora-rotate 30s linear infinite;
         }
@@ -144,10 +151,10 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
           height: 150%;
           background: linear-gradient(
             180deg,
-            transparent,
-            rgba(236, 72, 153, 0.15),
-            rgba(139, 92, 246, 0.1),
-            transparent
+            rgba(0, 0, 0, 0),
+            rgba(236, 72, 153, 0.2),
+            rgba(99, 102, 241, 0.15),
+            rgba(0, 0, 0, 0)
           );
           animation: aurora-rotate 35s linear infinite reverse;
         }
