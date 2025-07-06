@@ -1,12 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useState } from "react";
 import {
   Github,
@@ -15,6 +8,7 @@ import {
   Sparkles,
   Code,
   Image as ImageIcon,
+  ChevronDown,
 } from "lucide-react";
 
 export default function Index() {
@@ -118,34 +112,38 @@ export default function Index() {
               <label className="text-sm font-medium text-foreground">
                 Model
               </label>
-              <Select value={selectedModel} onValueChange={setSelectedModel}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a model" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="gpt-4">GPT-4</SelectItem>
-                  <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo</SelectItem>
-                  <SelectItem value="claude-3">Claude 3</SelectItem>
-                  <SelectItem value="gemini-pro">Gemini Pro</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <select
+                  value={selectedModel}
+                  onChange={(e) => setSelectedModel(e.target.value)}
+                  className="w-full h-10 px-3 pr-10 text-sm bg-background border border-input rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer"
+                >
+                  <option value="gpt-4">GPT-4</option>
+                  <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                  <option value="claude-3">Claude 3</option>
+                  <option value="gemini-pro">Gemini Pro</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 opacity-50 pointer-events-none" />
+              </div>
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">
                 Engine
               </label>
-              <Select value={selectedEngine} onValueChange={setSelectedEngine}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select an engine" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
-                  <SelectItem value="creative">Creative</SelectItem>
-                  <SelectItem value="precise">Precise</SelectItem>
-                  <SelectItem value="balanced">Balanced</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <select
+                  value={selectedEngine}
+                  onChange={(e) => setSelectedEngine(e.target.value)}
+                  className="w-full h-10 px-3 pr-10 text-sm bg-background border border-input rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer"
+                >
+                  <option value="default">Default</option>
+                  <option value="creative">Creative</option>
+                  <option value="precise">Precise</option>
+                  <option value="balanced">Balanced</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 opacity-50 pointer-events-none" />
+              </div>
             </div>
           </div>
 
