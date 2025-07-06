@@ -31,9 +31,9 @@ export default function Index() {
 
   return (
     <AuroraBackground className="min-h-screen">
-      <div className="min-h-screen bg-gradient-to-br from-background/90 via-background/95 to-background/90">
+      <div className="min-h-screen">
         {/* Header Navigation */}
-        <header className="border-b border-border/50 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+        <header className="border-b border-white/10 backdrop-blur-md bg-black/20 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-8">
@@ -111,7 +111,7 @@ export default function Index() {
           </div>
 
           {/* Controls Section */}
-          <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 mb-8 shadow-lg">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 mb-8 shadow-2xl">
             {/* Model and Engine Selectors */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div className="space-y-2">
@@ -181,8 +181,8 @@ export default function Index() {
           {/* Output Panels */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Code Panel */}
-            <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg">
-              <div className="flex items-center gap-3 p-4 border-b border-border/50 bg-muted/30">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="flex items-center gap-3 p-4 border-b border-white/10 bg-white/5">
                 <Code className="w-5 h-5 text-primary" />
                 <h3 className="font-semibold text-foreground">
                   Generated Code
@@ -207,8 +207,8 @@ export default function Index() {
             </div>
 
             {/* Image Panel */}
-            <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg">
-              <div className="flex items-center gap-3 p-4 border-b border-border/50 bg-muted/30">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="flex items-center gap-3 p-4 border-b border-white/10 bg-white/5">
                 <ImageIcon className="w-5 h-5 text-primary" />
                 <h3 className="font-semibold text-foreground">
                   Generated Image
@@ -227,7 +227,7 @@ export default function Index() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-20 border-t border-border/50 bg-muted/30">
+        <footer className="mt-20 border-t border-white/10 bg-white/5 backdrop-blur-md">
           <div className="max-w-6xl mx-auto px-6 py-8">
             <div className="text-center text-sm text-muted-foreground">
               2025 © Logisketch - All Rights Reserved
