@@ -1,20 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useState } from "react";
-import { Github, Sun, Moon } from "lucide-react";
+import {
+  Github,
+  Sun,
+  Moon,
+  Sparkles,
+  Code,
+  Image as ImageIcon,
+} from "lucide-react";
 
 export default function Index() {
-  const [selectedModel, setSelectedModel] = useState<"models" | "engines">(
-    "models",
-  );
+  const [selectedModel, setSelectedModel] = useState("gpt-4");
+  const [selectedEngine, setSelectedEngine] = useState("default");
   const [prompt, setPrompt] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const interactionItems = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    label: `Item ${i + 1}`,
-    isExpanded: false,
-  }));
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -28,154 +35,193 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background/80">
       {/* Header Navigation */}
-      <header className="border-b border-border px-4 py-3">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center gap-6">
-            <div className="text-lg font-medium">Logisketch logo</div>
-            <nav className="flex items-center gap-4">
+      <header className="border-b border-border/50 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-8">
+              <div className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                Logisketch
+              </div>
+            </div>
+
+            {/* Centered Navigation */}
+            <nav className="flex items-center gap-8">
               <a
                 href="#"
-                className="text-sm hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-colors relative group"
               >
                 example
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </a>
-              <button className="w-6 h-6 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors">
-                <Github className="w-3 h-3" />
+              <button className="p-2 hover:bg-accent rounded-full transition-colors group">
+                <Github className="w-5 h-5 group-hover:text-primary transition-colors" />
               </button>
               <a
                 href="#"
-                className="text-sm hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-colors relative group"
               >
                 docs
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </a>
             </nav>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-sm">
-              signup
-            </Button>
-            <Button variant="ghost" size="sm" className="text-sm">
-              signin
-            </Button>
-            <button
-              onClick={toggleTheme}
-              className="w-6 h-6 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors"
-            >
-              {isDarkMode ? (
-                <Sun className="w-3 h-3" />
-              ) : (
-                <Moon className="w-3 h-3" />
-              )}
-            </button>
+
+            <div className="flex items-center gap-3">
+              <Button variant="ghost" size="sm" className="text-sm font-medium">
+                Sign up
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-sm font-medium"
+              >
+                Sign in
+              </Button>
+              <button
+                onClick={toggleTheme}
+                className="p-2 hover:bg-accent rounded-full transition-colors group"
+              >
+                {isDarkMode ? (
+                  <Sun className="w-5 h-5 group-hover:text-primary transition-colors" />
+                ) : (
+                  <Moon className="w-5 h-5 group-hover:text-primary transition-colors" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Main Layout */}
-      <div className="flex-1 flex">
-        {/* Left Sidebar */}
-        <aside className="w-64 border-r border-border bg-sidebar-background p-4">
-          <div className="space-y-2">
-            <h2 className="text-sm font-medium mb-4 text-sidebar-foreground">
-              Interactions
-            </h2>
-            <div className="space-y-1">
-              {interactionItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="h-10 bg-sidebar-accent rounded-md border border-sidebar-border flex items-center px-3 hover:bg-sidebar-accent/80 transition-colors cursor-pointer"
-                >
-                  <div className="w-full h-2 bg-sidebar-accent-foreground/20 rounded"></div>
-                </div>
-              ))}
-            </div>
+      {/* Main Content */}
+      <main className="max-w-6xl mx-auto px-6 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
+            AI-Powered Generation
           </div>
-        </aside>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
+            Create anything with AI
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Generate code, images, and more with our advanced AI models. Start
+            creating something amazing today.
+          </p>
+        </div>
 
-        {/* Main Content */}
-        <main className="flex-1 flex flex-col">
-          {/* Content Area */}
-          <div className="flex-1 p-6 space-y-6">
-            {/* Model/Engine Toggle */}
-            <div className="flex gap-2">
-              <Button
-                variant={selectedModel === "models" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedModel("models")}
-                className="rounded-full"
-              >
-                models
-              </Button>
-              <Button
-                variant={selectedModel === "engines" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedModel("engines")}
-                className="rounded-full"
-              >
-                engines
-              </Button>
-            </div>
-
-            {/* Prompt Textarea */}
+        {/* Controls Section */}
+        <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 mb-8 shadow-lg">
+          {/* Model and Engine Selectors */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className="space-y-2">
-              <Textarea
-                placeholder="prompt"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-                className="min-h-[120px] resize-none rounded-xl border-2 border-border bg-card text-card-foreground placeholder:text-muted-foreground focus:border-ring"
-              />
+              <label className="text-sm font-medium text-foreground">
+                Model
+              </label>
+              <Select value={selectedModel} onValueChange={setSelectedModel}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a model" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="gpt-4">GPT-4</SelectItem>
+                  <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo</SelectItem>
+                  <SelectItem value="claude-3">Claude 3</SelectItem>
+                  <SelectItem value="gemini-pro">Gemini Pro</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
-            {/* Generate Button */}
-            <div className="flex justify-center">
-              <Button
-                className="rounded-full px-8 py-2 bg-primary text-primary-foreground hover:bg-primary/90"
-                size="lg"
-              >
-                Generate
-              </Button>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">
+                Engine
+              </label>
+              <Select value={selectedEngine} onValueChange={setSelectedEngine}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select an engine" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="default">Default</SelectItem>
+                  <SelectItem value="creative">Creative</SelectItem>
+                  <SelectItem value="precise">Precise</SelectItem>
+                  <SelectItem value="balanced">Balanced</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
+          </div>
 
-            {/* Output Panels */}
-            <div className="grid grid-cols-2 gap-4 flex-1 min-h-[300px]">
-              {/* Code Panel */}
-              <div className="border-2 border-border rounded-xl bg-card">
-                <div className="border-b border-border p-3">
-                  <h3 className="text-sm font-medium text-card-foreground">
-                    Code
-                  </h3>
-                </div>
-                <div className="p-4 h-full min-h-[250px] bg-muted/30">
-                  <div className="text-muted-foreground text-sm">
-                    Generated code will appear here...
-                  </div>
-                </div>
-              </div>
+          {/* Prompt Input */}
+          <div className="space-y-2 mb-6">
+            <label className="text-sm font-medium text-foreground">
+              Prompt
+            </label>
+            <Textarea
+              placeholder="Describe what you want to create..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              className="min-h-[120px] resize-none text-base leading-relaxed"
+            />
+          </div>
 
-              {/* Image Panel */}
-              <div className="border-2 border-border rounded-xl bg-card">
-                <div className="border-b border-border p-3">
-                  <h3 className="text-sm font-medium text-card-foreground">
-                    Image
-                  </h3>
-                </div>
-                <div className="p-4 h-full min-h-[250px] bg-muted/30 flex items-center justify-center">
-                  <div className="text-muted-foreground text-sm">
-                    Generated image will appear here...
+          {/* Generate Button */}
+          <div className="flex justify-center">
+            <Button
+              size="lg"
+              className="px-12 py-3 text-base font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <Sparkles className="w-5 h-5 mr-2" />
+              Generate
+            </Button>
+          </div>
+        </div>
+
+        {/* Output Panels */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Code Panel */}
+          <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg">
+            <div className="flex items-center gap-3 p-4 border-b border-border/50 bg-muted/30">
+              <Code className="w-5 h-5 text-primary" />
+              <h3 className="font-semibold text-foreground">Generated Code</h3>
+            </div>
+            <div className="p-4 h-80 overflow-auto">
+              <div className="text-muted-foreground text-sm">
+                <div className="font-mono text-xs leading-relaxed space-y-2">
+                  <div className="text-blue-400">
+                    // Your generated code will appear here
                   </div>
+                  <div className="text-gray-500">function example() {`{`}</div>
+                  <div className="text-gray-500 ml-4">
+                    return 'Hello, World!';
+                  </div>
+                  <div className="text-gray-500">{`}`}</div>
                 </div>
               </div>
             </div>
           </div>
-        </main>
-      </div>
+
+          {/* Image Panel */}
+          <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg">
+            <div className="flex items-center gap-3 p-4 border-b border-border/50 bg-muted/30">
+              <ImageIcon className="w-5 h-5 text-primary" />
+              <h3 className="font-semibold text-foreground">Generated Image</h3>
+            </div>
+            <div className="p-4 h-80 overflow-auto">
+              <div className="h-full flex items-center justify-center border-2 border-dashed border-border/50 rounded-lg">
+                <div className="text-center text-muted-foreground">
+                  <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                  <p className="text-sm">Generated image will appear here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-4 px-6">
-        <div className="text-center text-sm text-muted-foreground">
-          2025 © Logisketch - All Rights Reserved
+      <footer className="mt-20 border-t border-border/50 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <div className="text-center text-sm text-muted-foreground">
+            2025 © Logisketch - All Rights Reserved
+          </div>
         </div>
       </footer>
     </div>
