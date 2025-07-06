@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { Github, Sun, Moon, ChevronDown } from "lucide-react";
+import { Github, Sun, Moon } from "lucide-react";
 
 export default function Index() {
   const [selectedModel, setSelectedModel] = useState<"models" | "engines">(
@@ -143,7 +143,9 @@ export default function Index() {
                   </h3>
                 </div>
                 <div className="p-4 h-full min-h-[250px] bg-muted/30">
-                  {/* Code content placeholder */}
+                  <div className="text-muted-foreground text-sm">
+                    Generated code will appear here...
+                  </div>
                 </div>
               </div>
 
@@ -154,8 +156,10 @@ export default function Index() {
                     Image
                   </h3>
                 </div>
-                <div className="p-4 h-full min-h-[250px] bg-muted/30">
-                  {/* Image content placeholder */}
+                <div className="p-4 h-full min-h-[250px] bg-muted/30 flex items-center justify-center">
+                  <div className="text-muted-foreground text-sm">
+                    Generated image will appear here...
+                  </div>
                 </div>
               </div>
             </div>
