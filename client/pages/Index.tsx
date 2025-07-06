@@ -122,7 +122,7 @@ export default function Index() {
                   <select
                     value={selectedModel}
                     onChange={(e) => setSelectedModel(e.target.value)}
-                    className="w-full h-10 px-3 pr-10 text-sm bg-background border border-input rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer"
+                    className="w-full h-10 px-3 pr-10 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 cursor-pointer text-white"
                   >
                     <option value="gpt-4">GPT-4</option>
                     <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
@@ -141,7 +141,7 @@ export default function Index() {
                   <select
                     value={selectedEngine}
                     onChange={(e) => setSelectedEngine(e.target.value)}
-                    className="w-full h-10 px-3 pr-10 text-sm bg-background border border-input rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer"
+                    className="w-full h-10 px-3 pr-10 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 cursor-pointer text-white"
                   >
                     <option value="default">Default</option>
                     <option value="creative">Creative</option>
@@ -162,7 +162,7 @@ export default function Index() {
                 placeholder="Describe what you want to create..."
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                className="min-h-[120px] resize-none text-base leading-relaxed"
+                className="min-h-[120px] resize-none text-base leading-relaxed bg-white/10 backdrop-blur-sm border-white/20 text-white placeholder:text-white/60 focus:border-white/30"
               />
             </div>
 
