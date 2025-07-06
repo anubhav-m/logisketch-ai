@@ -22,16 +22,16 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
           <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px]">
             {/* Enhanced Aurora Layer */}
             <div className="absolute inset-0 opacity-60">
-              <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-              <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl animate-pulse animation-delay-2000"></div>
-              <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-emerald-400 rounded-full mix-blend-screen filter blur-3xl animate-pulse animation-delay-4000"></div>
+              <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl aurora-float"></div>
+              <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-1"></div>
+              <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-emerald-400 rounded-full mix-blend-screen filter blur-3xl aurora-float-delay-2"></div>
             </div>
 
             {/* Second Aurora Layer */}
             <div className="absolute inset-0 opacity-40">
-              <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-pink-400 rounded-full mix-blend-screen filter blur-2xl animate-pulse animation-delay-1000 transform -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-cyan-400 rounded-full mix-blend-screen filter blur-2xl animate-pulse animation-delay-3000"></div>
-              <div className="absolute top-1/6 right-1/2 w-24 h-24 bg-violet-400 rounded-full mix-blend-screen filter blur-2xl animate-pulse animation-delay-5000"></div>
+              <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-pink-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-3 transform -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-cyan-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-4"></div>
+              <div className="absolute top-1/6 right-1/2 w-24 h-24 bg-violet-400 rounded-full mix-blend-screen filter blur-2xl aurora-float-delay-5"></div>
             </div>
 
             {/* Enhanced Moving Aurora Elements */}
@@ -52,17 +52,40 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
       <div className="relative z-10">{children}</div>
 
       <style jsx>{`
-        .animation-delay-1000 {
+        .aurora-float {
+          animation: aurora-float 8s ease-in-out infinite;
+        }
+        .aurora-float-delay-1 {
+          animation: aurora-float 8s ease-in-out infinite;
           animation-delay: 1s;
         }
-        .animation-delay-2000 {
+        .aurora-float-delay-2 {
+          animation: aurora-float 8s ease-in-out infinite;
           animation-delay: 2s;
         }
-        .animation-delay-3000 {
+        .aurora-float-delay-3 {
+          animation: aurora-float 8s ease-in-out infinite;
           animation-delay: 3s;
         }
-        .animation-delay-4000 {
+        .aurora-float-delay-4 {
+          animation: aurora-float 8s ease-in-out infinite;
           animation-delay: 4s;
+        }
+        .aurora-float-delay-5 {
+          animation: aurora-float 8s ease-in-out infinite;
+          animation-delay: 5s;
+        }
+
+        @keyframes aurora-float {
+          0%,
+          100% {
+            transform: translateY(0px) scale(1);
+            opacity: 0.6;
+          }
+          50% {
+            transform: translateY(-10px) scale(1.05);
+            opacity: 0.8;
+          }
         }
 
         .aurora-1 {

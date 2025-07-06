@@ -105,34 +105,45 @@ export default function Index() {
             creating something amazing today.
           </p>
 
-          {/* Supported Engines Carousel */}
+          {/* Supported Engines Flowing Carousel */}
           <div className="mb-6">
             <p className="text-sm text-gray-400 mb-3">Supported engines:</p>
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {[
-                "plantuml",
-                "mermaid",
-                "graphviz",
-                "structurizr",
-                "blockdiag",
-                "seqdiag",
-                "packetdiag",
-                "c4plantuml",
-                "d2",
-                "erd",
-                "nomnoml",
-                "tikz",
-                "vegalite",
-                "symbolator",
-                "wavedrom",
-              ].map((engine) => (
-                <span
-                  key={engine}
-                  className="px-2 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-300"
-                >
-                  {engine}
-                </span>
-              ))}
+            <div className="overflow-hidden relative">
+              <div className="flex animate-flow gap-4 mb-4">
+                {[
+                  "plantuml",
+                  "mermaid",
+                  "graphviz",
+                  "structurizr",
+                  "blockdiag",
+                  "seqdiag",
+                  "packetdiag",
+                  "c4plantuml",
+                  "d2",
+                  "erd",
+                  "nomnoml",
+                  "tikz",
+                  "vegalite",
+                  "symbolator",
+                  "wavedrom",
+                  // Duplicate for seamless loop
+                  "plantuml",
+                  "mermaid",
+                  "graphviz",
+                  "structurizr",
+                  "blockdiag",
+                  "seqdiag",
+                  "packetdiag",
+                  "c4plantuml",
+                ].map((engine, index) => (
+                  <span
+                    key={`${engine}-${index}`}
+                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 whitespace-nowrap flex-shrink-0 hover:bg-white/10 transition-colors"
+                  >
+                    {engine}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
