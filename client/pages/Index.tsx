@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { useState } from "react";
 import {
   Github,
@@ -10,7 +11,6 @@ import {
   Image as ImageIcon,
   ChevronDown,
 } from "lucide-react";
-import AuroraBackground from "@nauverse/react-aurora-background";
 
 export default function Index() {
   const [selectedModel, setSelectedModel] = useState("gpt-4");
@@ -30,14 +30,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <AuroraBackground
-        colors={["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b"]}
-        opacity={0.1}
-        speed={1.5}
-        className="absolute inset-0"
-      />
-      <div className="relative z-10 min-h-screen bg-gradient-to-br from-background/90 via-background/95 to-background/90">
+    <AuroraBackground className="min-h-screen">
+      <div className="min-h-screen bg-gradient-to-br from-background/90 via-background/95 to-background/90">
         {/* Header Navigation */}
         <header className="border-b border-border/50 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-4">
@@ -241,6 +235,6 @@ export default function Index() {
           </div>
         </footer>
       </div>
-    </div>
+    </AuroraBackground>
   );
 }
