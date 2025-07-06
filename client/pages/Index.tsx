@@ -41,7 +41,7 @@ export default function Index() {
             </div>
 
             {/* Centered Navigation */}
-            <nav className="flex items-center gap-8">
+            <nav className="flex items-center gap-8 justify-start">
               <a
                 href="#"
                 className="text-sm font-medium hover:text-primary transition-colors relative group"
